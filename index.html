@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price List | DogSalon LEALEA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #faf7f2;
+      --warm:    #f3ede3;
+      --sage:    #8aab9b;
+      --sage-dk: #5e8474;
+      --brown:   #4a3f35;
+      --sand:    #c9b99a;
+      --white:   #ffffff;
+      --shadow:  rgba(74, 63, 53, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    .hero {
+      background: var(--sage-dk);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(255,255,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
+    }
+    .hero-paw {
+      font-size: 28px;
+      margin-bottom: 10px;
+      opacity: 0.8;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(13px, 3.5vw, 16px);
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(32px, 8vw, 44px);
+      color: #ffffff;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .hero-line {
+      width: 48px;
+      height: 1px;
+      background: rgba(255,255,255,0.45);
+      margin: 0 auto 14px;
+    }
+    .hero p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── WRAPPER ─── */
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 16px 64px;
+    }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 16px;
+    }
+    .section-label span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--sage-dk);
+      white-space: nowrap;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--sand);
+      opacity: 0.6;
+    }
+
+    /* ─── NOTE ─── */
+    .note {
+      background: var(--warm);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 11px;
+      color: var(--sage-dk);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    /* ─── PRICE CARD ─── */
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px var(--shadow);
+      margin-bottom: 8px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:active {
+      transform: scale(0.985);
+      box-shadow: 0 1px 8px var(--shadow);
+    }
+
+    .card-row {
+      display: flex;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(201,185,154,0.2);
+      gap: 10px;
+    }
+    .card-row:last-child { border-bottom: none; }
+
+    .breed {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--brown);
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+    }
+
+    .prices {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .price-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 72px;
+    }
+    .price-chip .label {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 2px;
+    }
+    .price-chip .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--sage-dk);
+      letter-spacing: 0.02em;
+    }
+    .price-chip .amount.na {
+      font-size: 13px;
+      color: var(--sand);
+      font-weight: 300;
+    }
+    .price-chip.featured .amount {
+      color: var(--sage-dk);
+    }
+
+    /* ─── DIVIDER CHIP ─── */
+    .chip-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(201,185,154,0.35);
+      flex-shrink: 0;
+    }
+
+    /* ─── OPTION CARDS ─── */
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .option-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 16px 14px;
+      box-shadow: 0 2px 12px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.18s ease;
+    }
+    .option-card:active { transform: scale(0.97); }
+    .option-card .opt-name {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.45;
+    }
+    .option-card .opt-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--sage-dk);
+      margin-top: auto;
+    }
+    .option-card.wide {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .option-card.wide .opt-price { font-size: 20px; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      text-align: center;
+      padding: 40px 24px 32px;
+      background: var(--brown);
+      margin-top: 40px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+    .footer p {
+      font-size: 11px;
+      color: var(--sand);
+      letter-spacing: 0.12em;
+    }
+    .footer-paw {
+      font-size: 20px;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    /* ─── BADGE ─── */
+    .badge {
+      display: inline-block;
+      background: var(--sage);
+      color: white;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      padding: 2px 7px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+
+    /* ─── FADE IN ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card:nth-child(1)  { animation-delay: 0.05s; }
+    .card:nth-child(2)  { animation-delay: 0.10s; }
+    .card:nth-child(3)  { animation-delay: 0.15s; }
+    .card:nth-child(4)  { animation-delay: 0.20s; }
+    .card:nth-child(5)  { animation-delay: 0.25s; }
+    .card:nth-child(6)  { animation-delay: 0.30s; }
+    .card:nth-child(7)  { animation-delay: 0.35s; }
+    .card:nth-child(8)  { animation-delay: 0.40s; }
+    .card:nth-child(9)  { animation-delay: 0.45s; }
+    .card:nth-child(10) { animation-delay: 0.50s; }
+    .card:nth-child(11) { animation-delay: 0.55s; }
+    .card:nth-child(12) { animation-delay: 0.60s; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-paw">🐾</div>
+  <h1>Dog Salon</h1>
+  <h2>LEALEA</h2>
+  <div class="hero-line"></div>
+  <p>Price List — 料金表</p>
+</div>
+
+<div class="container">
+
+  <!-- COLUMN GUIDE -->
+  <div style="display:flex; justify-content:flex-end; gap:8px; margin:20px 0 4px; padding-right:4px;">
+    <div style="min-width:72px; text-align:center; font-size:10px; letter-spacing:0.12em; color:var(--sage-dk); text-transform:uppercase;">Care</div>
+    <div style="width:1px;"></div>
+    <div style="min-width:72px; text-align:center; font-size:10px; letter-spacing:0.12em; color:var(--sage-dk); text-transform:uppercase;">Cut</div>
+  </div>
+
+  <!-- DOG BREEDS -->
+  <div class="section-label"><span>犬種別料金</span></div>
+  <div class="note">記載のない犬種はお問い合わせください</div>
+
+  <!-- BREED CARDS -->
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">チワワ（ロング）</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥4,950</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥6,600</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">ダックスフンド・パピヨン</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,500</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥7,150</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">ポメラニアン</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥7,700</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">ジャックラッセルテリア・パグ</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,500</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">フレンチブルドッグ</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,720</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">スピッツ</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,600</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">キャバリア・マルチーズ<br>ヨークシャテリア</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥8,800</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">トイプードル・シュナウザー</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,150</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">シーズー</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">ビション</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,150</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">コッカースパニエル</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,700</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥11,000</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-row">
+      <div class="breed">柴犬・コーギー・シェルティ</div>
+      <div class="prices">
+        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,700</span></div>
+        <div class="chip-divider"></div>
+        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTIONS -->
+  <div class="section-label" style="margin-top:36px;"><span>オプション</span></div>
+
+  <div class="option-grid">
+
+    <div class="option-card wide">
+      <div class="opt-name">単品（爪・足裏・肛門腺・耳掃除・ヒゲカット）</div>
+      <div class="opt-price">¥550<span style="font-size:13px;font-weight:300;color:var(--sand);">/1点</span></div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">部分カット</div>
+      <div class="opt-price">¥550<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">顔カット・ハサミ仕上げ</div>
+      <div class="opt-price">¥1,650<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">足先バリカン</div>
+      <div class="opt-price">¥1,100</div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">毛玉・もつれ・サイズ大きめ</div>
+      <div class="opt-price">¥550<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">保湿ケア<br>（ダーマモイスト）</div>
+      <div class="opt-price">¥1,100<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+    </div>
+
+    <div class="option-card">
+      <div class="opt-name">クレイ泥パック</div>
+      <div class="opt-price">¥880<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT NOTE -->
+  <div style="margin-top:28px; background:var(--warm); border-radius:14px; padding:18px 20px; text-align:center;">
+    <div style="font-size:11px; letter-spacing:0.1em; color:var(--sage-dk); margin-bottom:6px; text-transform:uppercase;">お問い合わせ</div>
+    <div style="font-size:13px; color:var(--brown); line-height:1.7;">
+      記載のない犬種・ご不明な点は<br>お気軽にご連絡ください 🐾
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-paw">🐾</div>
+  <div class="footer-logo">DogSalon LEALEA</div>
+  <p>すべての税込価格 · All prices include tax</p>
+</div>
+
+</body>
+</html>
