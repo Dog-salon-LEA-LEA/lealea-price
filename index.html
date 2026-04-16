@@ -154,11 +154,11 @@
 
     .breed {
       flex: 1;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 400;
       color: var(--brown);
       letter-spacing: 0.03em;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .prices {
@@ -170,24 +170,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 72px;
+      min-width: 82px;
     }
     .price-chip .label {
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.06em;
       color: var(--sand);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
+      white-space: nowrap;
     }
     .price-chip .amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      font-weight: 600;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
       color: var(--sage-dk);
       letter-spacing: 0.02em;
     }
     .price-chip .amount.na {
-      font-size: 13px;
+      font-size: 15px;
       color: var(--sand);
       font-weight: 300;
     }
@@ -222,15 +222,15 @@
     }
     .option-card:active { transform: scale(0.97); }
     .option-card .opt-name {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
       color: var(--brown);
-      line-height: 1.45;
+      line-height: 1.5;
     }
     .option-card .opt-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 600;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
       color: var(--sage-dk);
       margin-top: auto;
     }
@@ -240,7 +240,7 @@
       align-items: center;
       justify-content: space-between;
     }
-    .option-card.wide .opt-price { font-size: 20px; }
+    .option-card.wide .opt-price { font-size: 22px; }
 
     /* ─── FOOTER ─── */
     .footer {
@@ -320,9 +320,9 @@
 
   <!-- COLUMN GUIDE -->
   <div style="display:flex; justify-content:flex-end; gap:8px; margin:20px 0 4px; padding-right:4px;">
-    <div style="min-width:72px; text-align:center; font-size:10px; letter-spacing:0.12em; color:var(--sage-dk); text-transform:uppercase;">Care</div>
+    <div style="min-width:82px; text-align:center; font-size:11px; letter-spacing:0.06em; color:var(--sage-dk);">ケアコース</div>
     <div style="width:1px;"></div>
-    <div style="min-width:72px; text-align:center; font-size:10px; letter-spacing:0.12em; color:var(--sage-dk); text-transform:uppercase;">Cut</div>
+    <div style="min-width:82px; text-align:center; font-size:11px; letter-spacing:0.06em; color:var(--sage-dk);">カットコース</div>
   </div>
 
   <!-- DOG BREEDS -->
@@ -335,9 +335,9 @@
     <div class="card-row">
       <div class="breed">チワワ（ロング）</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥4,950</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥4,950</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥6,600</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥6,600</span></div>
       </div>
     </div>
   </div>
@@ -346,9 +346,9 @@
     <div class="card-row">
       <div class="breed">ダックスフンド・パピヨン</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,500</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥5,500</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥7,150</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥7,150</span></div>
       </div>
     </div>
   </div>
@@ -357,9 +357,9 @@
     <div class="card-row">
       <div class="breed">ポメラニアン</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥6,050</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥7,700</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥7,700</span></div>
       </div>
     </div>
   </div>
@@ -368,9 +368,9 @@
     <div class="card-row">
       <div class="breed">ジャックラッセルテリア・パグ</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,500</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥5,500</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
       </div>
     </div>
   </div>
@@ -379,9 +379,9 @@
     <div class="card-row">
       <div class="breed">フレンチブルドッグ</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥5,720</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥5,720</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
       </div>
     </div>
   </div>
@@ -390,9 +390,9 @@
     <div class="card-row">
       <div class="breed">スピッツ</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,600</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥6,600</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
       </div>
     </div>
   </div>
@@ -401,9 +401,9 @@
     <div class="card-row">
       <div class="breed">キャバリア・マルチーズ<br>ヨークシャテリア</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥6,050</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥8,800</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥8,800</span></div>
       </div>
     </div>
   </div>
@@ -412,9 +412,9 @@
     <div class="card-row">
       <div class="breed">トイプードル・シュナウザー</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,150</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥7,150</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥10,120</span></div>
       </div>
     </div>
   </div>
@@ -423,9 +423,9 @@
     <div class="card-row">
       <div class="breed">シーズー</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥6,050</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥6,050</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥10,120</span></div>
       </div>
     </div>
   </div>
@@ -434,9 +434,9 @@
     <div class="card-row">
       <div class="breed">ビション</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,150</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥7,150</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥10,120</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥10,120</span></div>
       </div>
     </div>
   </div>
@@ -445,9 +445,9 @@
     <div class="card-row">
       <div class="breed">コッカースパニエル</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,700</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥7,700</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount">¥11,000</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥11,000</span></div>
       </div>
     </div>
   </div>
@@ -456,9 +456,9 @@
     <div class="card-row">
       <div class="breed">柴犬・コーギー・シェルティ</div>
       <div class="prices">
-        <div class="price-chip"><span class="label">Care</span><span class="amount">¥7,700</span></div>
+        <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥7,700</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">Cut</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
       </div>
     </div>
   </div>
