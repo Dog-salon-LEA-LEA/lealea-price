@@ -31,7 +31,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── HEADER ─── */
     .hero {
       background: var(--sage-dk);
       padding: 48px 24px 40px;
@@ -39,6 +38,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -47,16 +47,19 @@
         radial-gradient(ellipse 60% 80% at 20% 50%, rgba(255,255,255,0.07) 0%, transparent 70%),
         radial-gradient(ellipse 50% 60% at 80% 30%, rgba(255,255,255,0.05) 0%, transparent 70%);
     }
+
     .hero-paw {
       font-size: 28px;
       margin-bottom: 10px;
       opacity: 0.8;
       animation: float 3s ease-in-out infinite;
     }
+
     @keyframes float {
       0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-5px); }
+      50% { transform: translateY(-5px); }
     }
+
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
@@ -66,6 +69,7 @@
       text-transform: uppercase;
       margin-bottom: 6px;
     }
+
     .hero h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
@@ -75,32 +79,33 @@
       line-height: 1.1;
       margin-bottom: 14px;
     }
+
     .hero-line {
       width: 48px;
       height: 1px;
       background: rgba(255,255,255,0.45);
       margin: 0 auto 14px;
     }
+
     .hero p {
       font-size: 12px;
       color: rgba(255,255,255,0.6);
       letter-spacing: 0.08em;
     }
 
-    /* ─── WRAPPER ─── */
     .container {
       max-width: 480px;
       margin: 0 auto;
       padding: 0 16px 64px;
     }
 
-    /* ─── SECTION LABEL ─── */
     .section-label {
       display: flex;
       align-items: center;
       gap: 12px;
       margin: 32px 0 16px;
     }
+
     .section-label span {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
@@ -109,6 +114,7 @@
       color: var(--sage-dk);
       white-space: nowrap;
     }
+
     .section-label::after {
       content: '';
       flex: 1;
@@ -117,7 +123,6 @@
       opacity: 0.6;
     }
 
-    /* ─── NOTE ─── */
     .note {
       background: var(--warm);
       border-left: 3px solid var(--sage);
@@ -129,7 +134,6 @@
       margin-bottom: 12px;
     }
 
-    /* ─── PRICE CARD ─── */
     .card {
       background: var(--white);
       border-radius: 16px;
@@ -138,6 +142,7 @@
       margin-bottom: 8px;
       transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
+
     .card:active {
       transform: scale(0.985);
       box-shadow: 0 1px 8px var(--shadow);
@@ -150,6 +155,7 @@
       border-bottom: 1px solid rgba(201,185,154,0.2);
       gap: 10px;
     }
+
     .card-row:last-child { border-bottom: none; }
 
     .breed {
@@ -166,12 +172,14 @@
       gap: 6px;
       flex-shrink: 0;
     }
+
     .price-chip {
       display: flex;
       flex-direction: column;
       align-items: center;
       min-width: 82px;
     }
+
     .price-chip .label {
       font-size: 10px;
       letter-spacing: 0.06em;
@@ -179,6 +187,7 @@
       margin-bottom: 3px;
       white-space: nowrap;
     }
+
     .price-chip .amount {
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 17px;
@@ -186,16 +195,13 @@
       color: var(--sage-dk);
       letter-spacing: 0.02em;
     }
+
     .price-chip .amount.na {
       font-size: 15px;
       color: var(--sand);
       font-weight: 300;
     }
-    .price-chip.featured .amount {
-      color: var(--sage-dk);
-    }
 
-    /* ─── DIVIDER CHIP ─── */
     .chip-divider {
       width: 1px;
       height: 30px;
@@ -203,13 +209,13 @@
       flex-shrink: 0;
     }
 
-    /* ─── OPTION CARDS ─── */
     .option-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
       margin-top: 4px;
     }
+
     .option-card {
       background: var(--white);
       border-radius: 14px;
@@ -220,13 +226,16 @@
       gap: 6px;
       transition: transform 0.18s ease;
     }
+
     .option-card:active { transform: scale(0.97); }
+
     .option-card .opt-name {
       font-size: 13px;
       font-weight: 400;
       color: var(--brown);
       line-height: 1.5;
     }
+
     .option-card .opt-price {
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 20px;
@@ -234,21 +243,46 @@
       color: var(--sage-dk);
       margin-top: auto;
     }
+
     .option-card.wide {
       grid-column: span 2;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
     }
+
     .option-card.wide .opt-price { font-size: 22px; }
 
-    /* ─── FOOTER ─── */
+    .clay-price-list {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .clay-price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--sage-dk);
+      border-bottom: 1px dotted rgba(201,185,154,0.7);
+      padding-bottom: 3px;
+      white-space: nowrap;
+    }
+
+    .clay-price-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
     .footer {
       text-align: center;
       padding: 40px 24px 32px;
       background: var(--brown);
       margin-top: 40px;
     }
+
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
@@ -257,40 +291,29 @@
       letter-spacing: 0.12em;
       margin-bottom: 8px;
     }
+
     .footer p {
       font-size: 11px;
       color: var(--sand);
       letter-spacing: 0.12em;
     }
+
     .footer-paw {
       font-size: 20px;
       margin-bottom: 12px;
       opacity: 0.6;
     }
 
-    /* ─── BADGE ─── */
-    .badge {
-      display: inline-block;
-      background: var(--sage);
-      color: white;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      padding: 2px 7px;
-      border-radius: 99px;
-      text-transform: uppercase;
-      vertical-align: middle;
-      margin-left: 6px;
-    }
-
-    /* ─── FADE IN ─── */
     .fade-in {
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.5s ease forwards;
     }
+
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
+
     .card:nth-child(1)  { animation-delay: 0.05s; }
     .card:nth-child(2)  { animation-delay: 0.10s; }
     .card:nth-child(3)  { animation-delay: 0.15s; }
@@ -307,7 +330,6 @@
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-paw">🐾</div>
   <h1>Dog Salon</h1>
@@ -318,18 +340,14 @@
 
 <div class="container">
 
-  <!-- COLUMN GUIDE -->
   <div style="display:flex; justify-content:flex-end; gap:8px; margin:20px 0 4px; padding-right:4px;">
     <div style="min-width:82px; text-align:center; font-size:11px; letter-spacing:0.06em; color:var(--sage-dk);">ケアコース</div>
     <div style="width:1px;"></div>
     <div style="min-width:82px; text-align:center; font-size:11px; letter-spacing:0.06em; color:var(--sage-dk);">カットコース</div>
   </div>
 
-  <!-- DOG BREEDS -->
   <div class="section-label"><span>犬種別料金</span></div>
   <div class="note">記載のない犬種はお問い合わせください</div>
-
-  <!-- BREED CARDS -->
 
   <div class="card fade-in">
     <div class="card-row">
@@ -370,7 +388,7 @@
       <div class="prices">
         <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥5,500</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥7,150</span></div>
       </div>
     </div>
   </div>
@@ -392,7 +410,7 @@
       <div class="prices">
         <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥6,600</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥8,250</span></div>
       </div>
     </div>
   </div>
@@ -458,12 +476,11 @@
       <div class="prices">
         <div class="price-chip"><span class="label">ケアコース</span><span class="amount">¥7,700</span></div>
         <div class="chip-divider"></div>
-        <div class="price-chip"><span class="label">カットコース</span><span class="amount na">—</span></div>
+        <div class="price-chip"><span class="label">カットコース</span><span class="amount">¥9,130</span></div>
       </div>
     </div>
   </div>
 
-  <!-- OPTIONS -->
   <div class="section-label" style="margin-top:36px;"><span>オプション</span></div>
 
   <div class="option-grid">
@@ -498,14 +515,17 @@
       <div class="opt-price">¥1,100<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
     </div>
 
-    <div class="option-card">
+    <div class="option-card wide">
       <div class="opt-name">クレイ泥パック</div>
-      <div class="opt-price">¥880<span style="font-size:14px;font-weight:300;color:var(--sand);">〜</span></div>
+      <div class="clay-price-list">
+        <div class="clay-price-row"><span>〜3kg</span><span>¥1,650</span></div>
+        <div class="clay-price-row"><span>4〜6kg</span><span>¥1,870</span></div>
+        <div class="clay-price-row"><span>7kg〜</span><span>¥2,090</span></div>
+      </div>
     </div>
 
   </div>
 
-  <!-- CONTACT NOTE -->
   <div style="margin-top:28px; background:var(--warm); border-radius:14px; padding:18px 20px; text-align:center;">
     <div style="font-size:11px; letter-spacing:0.1em; color:var(--sage-dk); margin-bottom:6px; text-transform:uppercase;">お問い合わせ</div>
     <div style="font-size:13px; color:var(--brown); line-height:1.7;">
@@ -513,9 +533,8 @@
     </div>
   </div>
 
-</div><!-- /container -->
+</div>
 
-<!-- FOOTER -->
 <div class="footer">
   <div class="footer-paw">🐾</div>
   <div class="footer-logo">DogSalon LEALEA</div>
